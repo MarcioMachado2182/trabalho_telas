@@ -4,7 +4,7 @@ class View:
     def __init__(self, root):
         self.root = root
         self.root.title("Cadastro e Login")
-        self.root.geometry("300x250")
+        self.root.geometry("400x300")
         
         self.controller = None
 

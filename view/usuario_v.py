@@ -56,3 +56,4 @@ class View:
     def login(self):
         if self.controller:
             self.controller.login()
+x

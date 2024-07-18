@@ -5,7 +5,7 @@ class View(tk.Frame):
         super().__init__()
         self.root = root
         self.root.title(("Tela Inicial"))
-        self.root.geometry("400x300")
+        self.root.geometry("600x500")
              
         self.controller = None
 

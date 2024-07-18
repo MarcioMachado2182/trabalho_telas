@@ -1,11 +1,12 @@
 import tkinter as tk
 
-class View:
+class View(tk.Frame):
     def __init__(self, root):
+        super().__init__()
         self.root = root
-        self.root.title("Cadastro e Login")
+        self.root.title(("Tela Inicial"))
         self.root.geometry("400x300")
-        
+             
         self.controller = None
 
         self.cadastro_frame = tk.Frame(self.root)
@@ -84,9 +85,11 @@ class View:
             self.controller.switch_to_cadastro()
 
     def show_cadastro_frame(self):
+        self.master.title("Tela de Cadastro")
         self.login_frame.pack_forget()
         self.cadastro_frame.pack()
 
     def show_login_frame(self):
+        self.master.title("Tela de Login")
         self.cadastro_frame.pack_forget()
         self.login_frame.pack()

@@ -4,6 +4,7 @@ from controller.usuario_c import Controller
 
 def main():
     root = tk.Tk()
+    
     view = View(root)
     controller = Controller(view)
     root.mainloop()

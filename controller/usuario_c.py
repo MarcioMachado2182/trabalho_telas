@@ -33,4 +33,14 @@ class Controller:
     def switch_to_cadastro(self):
         self.view.show_cadastro_frame()
 
+    def show_cadastro_frame(self):
+        self.master.title("Tela de Cadastro")
+        self.login_frame.pack_forget()
+        self.cadastro_frame.pack()
+
+    def show_login_frame(self):
+        self.master.title("Tela de Login")
+        self.cadastro_frame.pack_forget()
+        self.login_frame.pack()
+
 

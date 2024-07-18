@@ -11,21 +11,26 @@ class Controller:
         nome = self.view.get_nome()
         email = self.view.get_email()
         senha = self.view.get_senha()
-        login = self.view.get_login()
         
-        if nome and email and senha and login:
-            self.model.add_user(nome, email, senha, login)
+        if nome and email and senha:
+            self.model.add_user(nome, email, senha)
             messagebox.showinfo("Sucesso", "Cadastro realizado com sucesso!")
         else:
             messagebox.showwarning("Erro", "Todos os campos são obrigatórios!")
     
     def login(self):
-        login = self.view.get_login()
+        email = self.view.get_email()
         senha = self.view.get_senha()
         
-        if self.model.check_login(login, senha):
+        if self.model.check_login(email, senha):
             messagebox.showinfo("Sucesso", "Login realizado com sucesso!")
         else:
-            messagebox.showerror("Erro", "Login ou senha incorretos!")
-           
+            messagebox.showerror("Erro", "Email ou senha incorretos!")
+    
+    def switch_to_login(self):
+        self.view.show_login_frame()
+    
+    def switch_to_cadastro(self):
+        self.view.show_cadastro_frame()
+
 

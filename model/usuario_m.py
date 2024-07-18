@@ -2,11 +2,12 @@ class Model:
     def __init__(self):
         self.users = []
 
-    def add_user(self, nome, email, senha, login):
-        self.users.append({"nome": nome, "email": email, "senha": senha, "login": login})
+    def add_user(self, nome, email, senha):
+        self.users.append({"nome": nome, "email": email, "senha": senha})
     
-    def check_login(self, login, senha):
+    def check_login(self, email, senha):
         for user in self.users:
-            if user["login"] == login and user["senha"] == senha:
+            if user["email"] == email and user["senha"] == senha:
                 return True
         return False
+

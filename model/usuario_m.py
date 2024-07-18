@@ -10,4 +10,3 @@ class Model:
             if user["login"] == login and user["senha"] == senha:
                 return True
         return False
-x

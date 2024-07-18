@@ -27,5 +27,5 @@ class Controller:
             messagebox.showinfo("Sucesso", "Login realizado com sucesso!")
         else:
             messagebox.showerror("Erro", "Login ou senha incorretos!")
-            x
+           
 

@@ -17,7 +17,7 @@ class CadastroView(tk.Frame):
         self.root.title("Cadastro")
         
       # Carregar a imagem de fundo
-        self.background_image = Image.open("midia/anjo.jpg")
+        self.background_image = Image.open("midia/anime1.PNG")
         self.background_image = self.background_image.resize((600, 600))  # Redimensiona a imagem para 600x600
         self.background_photo = ImageTk.PhotoImage(self.background_image)
 
@@ -30,23 +30,23 @@ class CadastroView(tk.Frame):
         self.cadastro_frame.pack(expand=True)  # Centraliza o frame na tela
 
         # Widgets de entrada e rótulos
-        label_nome = tk.Label(self.cadastro_frame, text="Nome:")
-        label_nome.pack(pady=(10, 5))
+        self.label_nome = tk.Label(self.cadastro_frame, text="Nome:")
+        self.label_nome.pack(pady=(10, 5))
         self.entry_nome = tk.Entry(self.cadastro_frame)
         self.entry_nome.pack(pady=5)
 
-        label_email = tk.Label(self.cadastro_frame, text="Email:")
-        label_email.pack(pady=5)
+        self.label_email = tk.Label(self.cadastro_frame, text="Email:")
+        self.label_email.pack(pady=5)
         self.entry_email = tk.Entry(self.cadastro_frame)
         self.entry_email.pack(pady=5)
 
-        label_senha = tk.Label(self.cadastro_frame, text="Senha:")
-        label_senha.pack(pady=5)
+        self.label_senha = tk.Label(self.cadastro_frame, text="Senha:")
+        self.label_senha.pack(pady=5)
         self.entry_senha = tk.Entry(self.cadastro_frame, show='*')
         self.entry_senha.pack(pady=5)
 
-        botao_cadastrar = tk.Button(self.cadastro_frame, text="Cadastrar", command=self.cadastrar)
-        botao_cadastrar.pack(pady=(10, 5))
+        self.botao_cadastrar = tk.Button(self.cadastro_frame, text="Cadastrar", command=self.cadastrar)
+        self.botao_cadastrar.pack(pady=(10, 5))
 
         self.botao_ir_para_login = tk.Button(self.cadastro_frame, text="Ir para Login")
         self.botao_ir_para_login.pack(pady=(5, 10))

@@ -2,6 +2,7 @@ import tkinter as tk
 from view.usuario_v import View
 from view.cadastro_v import CadastroView
 from view.login_v import LoginView
+from view.produtos_v import ProdutosView
 from controller.login_c import LoginController
 
 
@@ -9,9 +10,10 @@ class MainApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("adicionar usuário")
-        self.login = LoginView
-        self.cadastro = CadastroView
-        self.switch_frame(self.login)
+        self.login_v = LoginView
+        self.cadastro_v = CadastroView
+        self.produtos_v = ProdutosView
+        self.switch_frame(self.produtos_v)
 
     def switch_frame(self, frame_class):
         new_frame = frame_class(self)

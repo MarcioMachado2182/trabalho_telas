@@ -7,21 +7,17 @@ class CadastroView(tk.Frame):
         self.root = root
         self.root.geometry("600x600")
         self.root.resizable(width=False, height=False)
-
-             
-
-        self.cadastro_frame = tk.Frame(self.root)
-
+        self.pack(fill=tk.BOTH, expand=True)
         self.create_cadastro_widgets()
 
-        self.cadastro_frame.pack()
+        
 
     def create_cadastro_widgets(self):
     
         self.root.title("Cadastro")
         
       # Carregar a imagem de fundo
-        self.background_image = Image.open("trabalho_telas/controller/midia/anjo.jpg")
+        self.background_image = Image.open("midia/anjo.jpg")
         self.background_image = self.background_image.resize((600, 600))  # Redimensiona a imagem para 600x600
         self.background_photo = ImageTk.PhotoImage(self.background_image)
 
@@ -52,8 +48,8 @@ class CadastroView(tk.Frame):
         botao_cadastrar = tk.Button(self.cadastro_frame, text="Cadastrar", command=self.cadastrar)
         botao_cadastrar.pack(pady=(10, 5))
 
-        botao_ir_para_login = tk.Button(self.cadastro_frame, text="Ir para Login")
-        botao_ir_para_login.pack(pady=(5, 10))
+        self.botao_ir_para_login = tk.Button(self.cadastro_frame, text="Ir para Login")
+        self.botao_ir_para_login.pack(pady=(5, 10))
 
 
     def get_nome(self):

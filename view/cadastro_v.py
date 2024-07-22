@@ -35,6 +35,11 @@ class CadastroView(tk.Frame):
         self.entry_nome = tk.Entry(self.cadastro_frame)
         self.entry_nome.pack(pady=5)
 
+        label_endereco = tk.Label(self.cadastro_frame, text="Endereço:")
+        label_endereco.pack(pady=(10, 5))
+        self.entry_endereco = tk.Entry(self.cadastro_frame)
+        self.entry_endereco.pack(pady=5)
+
         label_email = tk.Label(self.cadastro_frame, text="Email:")
         label_email.pack(pady=5)
         self.entry_email = tk.Entry(self.cadastro_frame)

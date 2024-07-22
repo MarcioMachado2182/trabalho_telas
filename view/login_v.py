@@ -15,6 +15,10 @@ class LoginView(tk.Frame):
         self.create_login_widgets()
         self.login_frame.pack()
 
+    # Carregar a imagem de fundo
+        self.background_image = Image.open("midia/anjo.jpg")
+        self.background_image = self.background_image.resize((600, 600))  # Redimensiona a imagem para 600x600
+        self.background_photo = ImageTk.PhotoImage(self.background_image)
 
     def create_login_widgets(self):
         self. label_email = tk.Label(self.login_frame, text="Email:")

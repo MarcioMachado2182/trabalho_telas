@@ -8,10 +8,10 @@ class CadastroView(tk.Frame):
         self.root.geometry("600x600")
         self.root.resizable(width=False, height=False)
         self.pack(fill=tk.BOTH, expand=True)
+
+
         self.create_cadastro_widgets()
-
-        
-
+  
     def create_cadastro_widgets(self):
     
         self.root.title("Cadastro")
@@ -55,7 +55,6 @@ class CadastroView(tk.Frame):
 
         self.botao_ir_para_login = tk.Button(self.cadastro_frame, text="Ir para Login")
         self.botao_ir_para_login.pack(pady=(5, 10))
-
 
     def get_nome(self):
         return self.entry_nome.get()

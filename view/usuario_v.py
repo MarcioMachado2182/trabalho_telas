@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
-class View(tk.Frame):
+class UsuarioView(tk.Frame):
     def __init__(self, root):
         super().__init__()
         self.root = root

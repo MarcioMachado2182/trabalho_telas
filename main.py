@@ -3,6 +3,7 @@ from view.usuario_v import View
 from view.cadastro_v import CadastroView
 from view.login_v import LoginView
 from controller.login_c import LoginController
+from view.telainicial_v import TelaInicial
 
 
 class MainApp(tk.Tk):

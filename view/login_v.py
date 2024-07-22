@@ -46,8 +46,6 @@ class LoginView(tk.Frame):
     def get_senha(self):
         return self.entry_senha.get() or self.entry_senha_login.get()
 
-
-
     def login(self):
             if self.controller:
                 self.controller.login()

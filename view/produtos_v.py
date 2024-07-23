@@ -65,6 +65,8 @@ class ProdutosView(tk.Frame):
     def ir_para_carrinho(self):
         print("Indo para o Carrinho de Compras...")
 
+    
+    
 if __name__ == "__main__":
     root = tk.Tk()
     app = ProdutosView(root)

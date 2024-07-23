@@ -14,13 +14,24 @@ class CadastroController:
         email = self.view.get_email()
         senha = self.view.get_senha()
         if nome and email and senha.isdigit():
-            self.model.cadastrar_usuario(nome, email, senha)
-            self.view.nome_entry.delete(0, tk.END)
-            self.view.email_entry.delete(0, tk.END)
-            self.view.senha_entry.delete(0, tk.END)
-            self.view.cadastrar_listbox.delete(0, tk.END)
-            self.carregar_usuarios()
-
+            # Tentativa de cadastrar o usuário
+            try:
+                self.model.cadastrar_usuario(nome, email, senha)
+            except Exception as e:
+                # Tratamento de exceções específicas
+                print(f'Erro ao cadastrar usuaário: {e}')
+                # Exibir uma mensagem de erro para o usuário na interface
+                self.view.mostrar_mensagem_erro("Erro ao cadastrar usuário.")
+            else:
+                # Limpar campos de entrada e atualizar lista de usuários após cadastro bem-sucedido
+                self.view.nome_entry.delete(0, tk.END)
+                self.view.email_entry.delete(0, tk.END)
+                self.view.senha_entry.delete(0, tk.END)
+                self.view.cadastrar_listbox.delete(0, tk.END)
+                self.carregar_usuarios()
+        else:
+             # Lidar com o caso em que a validação dos dados falha
+             self.view.mostrar_mensagem_erro("Por favor, preencha todos os campos corretamente.")
 
 
     def carregar_usuarios(self):

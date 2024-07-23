@@ -45,24 +45,24 @@ class ProdutosView(tk.Frame):
             img = img.resize((150, 150))
             img_tk = ImageTk.PhotoImage(img)
 
-            self.label_img = ttk.Label(frame, image=img_tk)
+            self.label_img = ttk.Label(self.frame, image=img_tk)
             self.label_img.image = img_tk
             self.label_img.grid(row=0, column=0, columnspan=2)
 
-            self.label_nome = ttk.Label(frame, text=nome)
+            self.label_nome = ttk.Label(self.frame, text=nome)
             self.label_nome.grid(row=1, column=0, columnspan=2)
 
-            self.label_preco = ttk.Label(frame, text=preco)
+            self.label_preco = ttk.Label(self.frame, text=preco)
             self.label_preco.grid(row=2, column=0, columnspan=2)
 
-            self.btn_adicionar = ttk.Button(frame, text="Adicionar ao Carrinho", command=lambda p=produto: self.adicionar_ao_carrinho(p))
+            self.btn_adicionar = ttk.Button(self.frame, text="Adicionar ao Carrinho", command=lambda p=produto: self.adicionar_ao_carrinho(p))
             self.btn_adicionar.grid(row=3, column=0, columnspan=2, pady=5)
 
         # Criando o botão "Ir para o Carrinho de Compras"
         self.frame_carrinho = ttk.Frame(self.root)
         self.frame_carrinho.pack(side="bottom")
         
-        self.btn_carrinho = ttk.Button(frame_carrinho, text="Ir para o Carrinho de Compras", command=self.ir_para_carrinho)
+        self.btn_carrinho = ttk.Button(self.frame_carrinho, text="Ir para o Carrinho de Compras", command=self.ir_para_carrinho)
         self.btn_carrinho.pack()
 
     def ir_para_carrinho(self):

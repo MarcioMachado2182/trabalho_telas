@@ -19,13 +19,5 @@ class CadastroController:
             self.view.email_entry.delete(0, tk.END)
             self.view.senha_entry.delete(0, tk.END)
             self.view.cadastrar_listbox.delete(0, tk.END)
-            self.carregar_usuarios()
 
-
-
-    def carregar_usuarios(self):
-
-        usuarios= self.model.selecionar_usuarios()
-        for usuario in usuarios:
-            self.view.adicionar_usuario_lista(usuario) 
 

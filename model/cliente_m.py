@@ -1,6 +1,4 @@
 
-import tkinter as tk
-from tkinter import messagebox
 import mariadb
 import sys
 
@@ -37,19 +35,20 @@ class ClienteModel:
         try:
             cursor.execute('INSERT INTO clientes (nome, cpf, email) VALUES (?, ?, ?)', (nome, cpf, email))
             self.conn.commit()
-            messagebox.showinfo("Sucesso", "Cliente cadastrado com sucesso!")
+            return True
         except mariadb.Error as e:
             print(f"Erro ao inserir cliente: {e}")
-            messagebox.showerror("Erro", "Erro ao cadastrar cliente!")
+            return False
 
-    def registrar_compra(self, cliente_id, camiseta, quantidade):
+    def inserir_pedido(self, cliente_id, items, valor_total, forma_pagamento, endereco_entrega, metodo_entrega):
         cursor = self.conn.cursor()
         try:
-            cursor.execute('INSERT INTO compras (cliente_id, camiseta, quantidade) VALUES (%s, %s, %s)', (cliente_id, camiseta, quantidade))
+            cursor.execute('INSERT INTO pedidos (cliente_id, items, valor_total, forma_pagamento, endereco_entrega, metodo_entrega) VALUES (%s, %s, %s, %s, %s, %s)',
+                           (cliente_id, items, valor_total, forma_pagamento, endereco_entrega, metodo_entrega))
             self.conn.commit()
             return True
-        except mariadb.connector.Error as e:
-            print(f"Erro ao registrar compra: {e}")
+        except mariadb.Error as e:
+            print(f"Erro ao inserir pedido: {e}")
             return False
         
     def selecionar_clientes(self):
@@ -57,12 +56,9 @@ class ClienteModel:
         cursor.execute('SELECT * FROM clientes')
         return cursor.fetchall()
 
-    def fechar_conexao(self):
-        self.conn.close()
-
     def historico_compras(self, cliente_id):
         cursor = self.conn.cursor()
-        cursor.execute('SELECT camiseta, quantidade FROM compras WHERE cliente_id = %s', (cliente_id,))
+        cursor.execute('SELECT items, valor_total FROM pedidos WHERE cliente_id = %s', (cliente_id,))
         return cursor.fetchall()
 
     def fechar_conexao(self):

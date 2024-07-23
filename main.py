@@ -1,10 +1,11 @@
 import tkinter as tk
-from view.usuario_v import View
+from view.usuario_v import UsuarioView
 from view.cadastro_v import CadastroView
 from view.login_v import LoginView
 from view.produtos_v import ProdutosView
 from controller.login_c import LoginController
 from view.carrinho_compras import CarrinhoCompras
+
 
 class MainApp(tk.Tk):
     def __init__(self):

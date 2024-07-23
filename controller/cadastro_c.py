@@ -13,7 +13,6 @@ class CadastroController:
         nome = self.view.get_nome()
         email = self.view.get_email()
         senha = self.view.get_senha()
-        
         if nome and email and senha.isdigit():
             # Tentativa de cadastrar o usuário
             try:
